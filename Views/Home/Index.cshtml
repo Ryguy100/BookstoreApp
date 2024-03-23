@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model BookListViewModel
+
+<div>
+    <h2 class="text-center my-3">Books</h2>
+    @* The pagination buttons *@
+    <div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-outline-secondary" page-class-selected="btn-primary"
+         class="btn-group pull-right m-1">
+    </div>
+
+    @* For each loop to print out each book *@
+    @foreach (Book b in Model.Books)
+    {
+        <partial name="BookList" model="b" />
+    }
+
+    <div page-model="@Model.PaginationInfo" page-action="Index" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-outline-secondary" page-class-selected="btn-primary"
+         class="btn-group pull-right m-1">
+    </div>
+</div>
